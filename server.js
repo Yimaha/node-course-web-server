@@ -4,6 +4,8 @@ const fs = require('fs');
 
 var app = express();
 
+const port = process.env.PORT || 3000;
+
 //register partial of the hbs, used to manage, provided by hbs
 hbs.registerPartials(__dirname + '/views/partials');
 //set hbs as the view engine of the webpage we serve
@@ -58,4 +60,6 @@ app.get('/about', (req, res) => {
 
 
 
-app.listen(3000);
+app.listen(port, ()=>{
+    console.log("listening on: " + port)
+});
